@@ -67,7 +67,11 @@ export default function Project() {
                     {section.label} <span aria-hidden>{'>'}</span>
                   </button>
                 )}
-                {isActive && <SectionBody section={section} />}
+                {isActive && (
+                  <div className="section-copy">
+                    <SectionBody section={section} />
+                  </div>
+                )}
               </Fragment>
             )
           })}

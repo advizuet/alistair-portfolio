@@ -217,10 +217,21 @@ a {
   width: var(--col-left);
   flex: none;
   min-height: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   display: flex;
   flex-direction: column;
   gap: 1.875rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.28) transparent;
+}
+.split__left::-webkit-scrollbar {
+  width: 6px;
+}
+.split__left::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 3px;
 }
 .split__right {
   flex: 1;
@@ -257,18 +268,38 @@ a {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  min-height: 0;
-  overflow: hidden;
 }
 .body p {
   margin: 0;
 }
 
 /* ---- Project header + section nav ---- */
+.section-copy {
+  flex: 0 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+  gap: 1.875rem;
+  padding-right: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.28) transparent;
+}
+.section-copy::-webkit-scrollbar {
+  width: 6px;
+}
+.section-copy::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 3px;
+}
+
 .proj-header {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  flex: none;
 }
 .proj-header__title {
   margin: 0;
@@ -289,6 +320,7 @@ a {
   font-size: 1.5rem;
   line-height: 1.1;
   width: max-content;
+  flex: none;
   transition: color 0.12s ease;
 }
 button.section-nav {
