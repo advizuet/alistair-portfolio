@@ -28,6 +28,7 @@
 html {
   /* 16px at the 1024-tall Figma frame; shrink to keep the whole page on screen. */
   font-size: min(16px, calc(100dvh * 16 / 1024), calc(100vw * 16 / 1280));
+  cursor: crosshair;
 }
 
 html,
@@ -51,6 +52,11 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
 }
 
 /* ---- Page shell ---- */
@@ -89,7 +95,7 @@ a {
 }
 .logo--home {
   color: var(--blue);
-  cursor: default;
+  cursor: crosshair;
 }
 .logo--home:hover {
   color: var(--blue);
@@ -349,7 +355,7 @@ button.section-nav {
 }
 .section-nav--active {
   color: var(--blue);
-  cursor: default;
+  cursor: crosshair;
 }
 .section-nav--link:hover {
   color: var(--blue);
