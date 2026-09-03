@@ -70,7 +70,13 @@ function Cell({
   )
 }
 
-export default function MediaPanel({ media }: { media: Media }) {
+export default function MediaPanel({
+  media,
+  fit = 'contain',
+}: {
+  media: Media
+  fit?: 'contain' | 'cover'
+}) {
   const [tip, setTip] = useState<Tip | null>(null)
   const tipRef = useRef<HTMLDivElement>(null)
 
@@ -96,7 +102,7 @@ export default function MediaPanel({ media }: { media: Media }) {
   if (media.type === 'single') {
     return (
       <>
-        <div className="media">
+        <div className={`media media--${fit}`}>
           <Cell cell={media.cell} onMove={onMove} onLeave={onLeave} />
         </div>
         {tooltip}

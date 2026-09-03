@@ -20,7 +20,7 @@ export default function Home() {
           <Logo home />
 
           <Link
-            to="/resume"
+            to="/about"
             className="home__resume"
             onMouseEnter={() => setPreview({ src: previewResume, fit: 'cover' })}
             onMouseLeave={() => setPreview(null)}

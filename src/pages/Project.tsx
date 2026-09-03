@@ -47,6 +47,7 @@ export default function Project() {
     <Layout>
       <div className="split">
         <div className="split__left">
+          <div className="split__logo-space" aria-hidden="true" />
           <div className="proj-header">
             <h1 className="proj-header__title">{project.title}</h1>
             <p className="proj-header__sub">{project.subtitle}</p>

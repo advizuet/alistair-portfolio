@@ -19,7 +19,6 @@ import sensing09 from '../assets/sensing-09.png'
 import sensing10 from '../assets/sensing-10.png'
 import sensing11 from '../assets/sensing-11.png'
 import sensing12 from '../assets/sensing-12.png'
-import sensingOverview from '../assets/sensing-overview.png'
 
 export type MediaCell = {
   /** Label used for the placeholder and to identify the intended asset. */
@@ -124,7 +123,7 @@ export const projects: Project[] = [
           'While “fish in the fields” is a practice with a rich culturual and indigenous history, modern adoption is low, and RRI is building support and momentum for it. A significant part of that work involves data collection and field monitoring.',
           'Our group designed a fully functional prototype as a proof concept for our solution: a networked array of sesnor buoys, accessible through an interactive dashboard and persona driven chatbot, that can distill the most relevant insights for the user, whether that be a farmer, scientist, or RRI representative.',
         ],
-        media: { type: 'single', cell: { label: 'sensing_buoy', src: sensingOverview } },
+        media: { type: 'single', cell: { label: 'sensing_buoy', src: previewSensing } },
       },
       {
         id: 'process',

@@ -17,7 +17,7 @@ export default function Resume() {
     <Layout>
       <div className="split">
         <div className="split__left">
-          <h1 className="section-title">About + Resume</h1>
+          <div className="split__logo-space" aria-hidden="true" />
           <p className="meta-line">{roles}</p>
           <p className="lead">
             I love designing things and I am goated and fantastic. You should hire me :)
@@ -30,7 +30,7 @@ export default function Resume() {
         </div>
 
         <div className="split__right">
-          <MediaPanel media={{ type: 'single', cell: { label: 'portrait', src: portrait } }} />
+          <MediaPanel media={{ type: 'single', cell: { label: 'portrait', src: portrait } }} fit="cover" />
         </div>
       </div>
     </Layout>
