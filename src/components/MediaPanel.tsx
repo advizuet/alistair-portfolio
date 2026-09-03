@@ -1,8 +1,33 @@
-import { useState, type MouseEvent } from 'react'
+import { useLayoutEffect, useRef, useState, type MouseEvent } from 'react'
 import { createPortal } from 'react-dom'
 import type { Media, MediaCell } from '../data/projects'
 
-type Tip = { text: string; x: number; y: number }
+const TIP_OFFSET = 12
+const TIP_PAD = 8
+
+type Tip = { text: string; cursorX: number; cursorY: number }
+
+function placeTip(el: HTMLElement, cursorX: number, cursorY: number) {
+  const w = el.offsetWidth
+  const h = el.offsetHeight
+  const vw = window.innerWidth
+  const vh = window.innerHeight
+
+  let left = cursorX + TIP_OFFSET
+  if (left + w > vw - TIP_PAD) {
+    left = cursorX - TIP_OFFSET - w
+  }
+  left = Math.min(Math.max(left, TIP_PAD), Math.max(TIP_PAD, vw - w - TIP_PAD))
+
+  let top = cursorY + TIP_OFFSET
+  if (top + h > vh - TIP_PAD) {
+    top = cursorY - TIP_OFFSET - h
+  }
+  top = Math.min(Math.max(top, TIP_PAD), Math.max(TIP_PAD, vh - h - TIP_PAD))
+
+  el.style.left = `${left}px`
+  el.style.top = `${top}px`
+}
 
 function captionFor(cell: MediaCell) {
   return cell.caption?.trim() || cell.label
@@ -47,26 +72,21 @@ function Cell({
 
 export default function MediaPanel({ media }: { media: Media }) {
   const [tip, setTip] = useState<Tip | null>(null)
+  const tipRef = useRef<HTMLDivElement>(null)
 
   const onMove = (text: string, x: number, y: number) => {
-    const offset = 12
-    const maxW = 300
-    const maxH = 80
-    const left =
-      x + offset + maxW > window.innerWidth - 8 ? Math.max(8, x - offset - maxW) : x + offset
-    const top =
-      y + offset + maxH > window.innerHeight - 8 ? Math.max(8, y - offset - maxH) : y + offset
-    setTip({ text, x: left, y: top })
+    setTip({ text, cursorX: x, cursorY: y })
   }
   const onLeave = () => setTip(null)
 
+  useLayoutEffect(() => {
+    if (!tip || !tipRef.current) return
+    placeTip(tipRef.current, tip.cursorX, tip.cursorY)
+  }, [tip])
+
   const tooltip = tip
     ? createPortal(
-        <div
-          className="img-tip"
-          style={{ left: tip.x, top: tip.y }}
-          role="tooltip"
-        >
+        <div ref={tipRef} className="img-tip" role="tooltip">
           {tip.text}
         </div>,
         document.body,

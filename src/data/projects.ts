@@ -1,6 +1,8 @@
 import pipebot02 from '../assets/pipebot-02.png'
 import pipebot03 from '../assets/pipebot-03.png'
 import pipebot04 from '../assets/pipebot-04.png'
+import pipebot05 from '../assets/pipebot-05.png'
+import pipebot06 from '../assets/pipebot-06.jpg'
 import pipebotShowcase from '../assets/pipebot-showcase.png'
 import previewChat from '../assets/preview-chat.png'
 import previewPipebot from '../assets/preview-pipebot.png'
@@ -14,8 +16,10 @@ import sensing06 from '../assets/sensing-06.png'
 import sensing07 from '../assets/sensing-07.png'
 import sensing08 from '../assets/sensing-08.png'
 import sensing09 from '../assets/sensing-09.png'
+import sensing10 from '../assets/sensing-10.png'
+import sensing11 from '../assets/sensing-11.png'
+import sensing12 from '../assets/sensing-12.png'
 import sensingOverview from '../assets/sensing-overview.png'
-import sensingShowcase from '../assets/sensing-showcase.png'
 
 export type MediaCell = {
   /** Label used for the placeholder and to identify the intended asset. */
@@ -158,7 +162,24 @@ export const projects: Project[] = [
         id: 'showcase',
         label: 'Showcase',
         body: ['blah blah showcase stuff'],
-        media: { type: 'single', cell: { label: 'sensing_showcase', src: sensingShowcase } },
+        media: {
+          type: 'collage',
+          rows: [
+            {
+              height: 1769,
+              cells: [
+                { label: 'sensing_12', flex: 1498, src: sensing12 },
+                { label: 'sensing_10', flex: 1498, src: sensing10 },
+              ],
+            },
+            {
+              height: 1698,
+              cells: [
+                { label: 'sensing_11', flex: 3038, src: sensing11 },
+              ],
+            },
+          ],
+        },
       },
     ],
   },
@@ -194,13 +215,52 @@ export const projects: Project[] = [
             {
               height: 438,
               cells: [
-                { label: 'pipebot_03', flex: 388, src: pipebot03 },
-                { label: 'pipebot_02', flex: 480, src: pipebot02 },
+                {
+                  label: 'pipebot_02',
+                  caption: 'Early brainstorming sketches of what would become PipeBot',
+                  flex: 480,
+                  src: pipebot02,
+                },
+                {
+                  label: 'pipebot_03',
+                  caption: 'An early sketch of the expansion anchor mechanism and locomotion sequence',
+                  flex: 388,
+                  src: pipebot03,
+                },
               ],
             },
             {
               height: 384,
-              cells: [{ label: 'pipebot_04', flex: 880, src: pipebot04 }],
+              cells: [
+                {
+                  label: 'pipebot_04',
+                  caption: 'a proof-of-concept prototype demonstrating the efficacy of the linkage mechanism',
+                  flex: 880,
+                  src: pipebot04,
+                },
+              ],
+            },
+            {
+              height: 418,
+              cells: [
+                {
+                  label: 'pipebot_05',
+                  caption: 'a midpoint prototype after replacing most parts with TPU',
+                  flex: 880,
+                  src: pipebot05,
+                },
+              ],
+            },
+            {
+              height: 693,
+              cells: [
+                {
+                  label: 'pipebot_06',
+                  caption: 'rear view of the umbillical port and cable bundle',
+                  flex: 880,
+                  src: pipebot06,
+                },
+              ],
             },
           ],
         },
