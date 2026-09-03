@@ -1,7 +1,6 @@
 import pipebot02 from '../assets/pipebot-02.png'
 import pipebot03 from '../assets/pipebot-03.png'
 import pipebot04 from '../assets/pipebot-04.png'
-import pipebot05 from '../assets/pipebot-05.png'
 import pipebotShowcase from '../assets/pipebot-showcase.png'
 import previewChat from '../assets/preview-chat.png'
 import previewPipebot from '../assets/preview-pipebot.png'
@@ -21,6 +20,8 @@ import sensingShowcase from '../assets/sensing-showcase.png'
 export type MediaCell = {
   /** Label used for the placeholder and to identify the intended asset. */
   label: string
+  /** Hover tooltip text. Falls back to `label` when omitted. */
+  caption?: string
   /** Optional imported/hosted image source. When absent a placeholder renders. */
   src?: string
   /** Relative width within its collage row (flex-grow). Defaults to 1. */
@@ -33,9 +34,15 @@ export type CollageRow = {
   height: number
 }
 
+export type CollageRail = {
+  /** Relative width of the right-hand column (same units as cell flex). */
+  flex: number
+  cells: MediaCell[]
+}
+
 export type Media =
   | { type: 'single'; cell: MediaCell }
-  | { type: 'collage'; rows: CollageRow[] }
+  | { type: 'collage'; rows: CollageRow[]; rail?: CollageRail }
 
 export type SectionId = 'overview' | 'process' | 'showcase'
 
@@ -137,14 +144,14 @@ export const projects: Project[] = [
                 { label: 'sensing_07', flex: 286, src: sensing07 },
               ],
             },
-            {
-              height: 333,
-              cells: [
-                { label: 'sensing_08', flex: 434, src: sensing08 },
-                { label: 'sensing_09', flex: 434, src: sensing09 },
-              ],
-            },
           ],
+          rail: {
+            flex: 434,
+            cells: [
+              { label: 'sensing_08', src: sensing08 },
+              { label: 'sensing_09', src: sensing09 },
+            ],
+          },
         },
       },
       {
@@ -194,10 +201,6 @@ export const projects: Project[] = [
             {
               height: 384,
               cells: [{ label: 'pipebot_04', flex: 880, src: pipebot04 }],
-            },
-            {
-              height: 419,
-              cells: [{ label: 'pipebot_05', flex: 880, src: pipebot05 }],
             },
           ],
         },
