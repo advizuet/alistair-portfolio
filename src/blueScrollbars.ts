@@ -1,4 +1,4 @@
-const SELECTOR = '.split__left, .split__right, .section-copy'
+const SELECTOR = '.split__left, .split__right, .section-copy, .work__list'
 
 function paint(el: HTMLElement) {
   const overflow = el.scrollHeight - el.clientHeight

@@ -44,27 +44,29 @@ export default function Home() {
             }}
           >
             <h1 className="work__heading">Work</h1>
-            {projects.map((project) => (
-              <Link
-                key={project.slug}
-                to={`/work/${project.slug}`}
-                className="work__item"
-                onMouseEnter={() =>
-                  project.preview ? setPreview({ src: project.preview, fit: 'contain' }) : setPreview(null)
-                }
-                onFocus={() =>
-                  project.preview ? setPreview({ src: project.preview, fit: 'contain' }) : setPreview(null)
-                }
-              >
-                <span className="work__title-row">
-                  <span className="work__title">{project.title}</span>
-                  <span className="work__arrow" aria-hidden>
-                    {'>'}
+            <div className="work__list">
+              {projects.map((project) => (
+                <Link
+                  key={project.slug}
+                  to={`/work/${project.slug}`}
+                  className="work__item"
+                  onMouseEnter={() =>
+                    project.preview ? setPreview({ src: project.preview, fit: 'contain' }) : setPreview(null)
+                  }
+                  onFocus={() =>
+                    project.preview ? setPreview({ src: project.preview, fit: 'contain' }) : setPreview(null)
+                  }
+                >
+                  <span className="work__title-row">
+                    <span className="work__title">{project.title}</span>
+                    <span className="work__arrow" aria-hidden>
+                      {'>'}
+                    </span>
                   </span>
-                </span>
-                <span className="work__subtitle">{project.subtitle}</span>
-              </Link>
-            ))}
+                  <span className="work__subtitle">{project.subtitle}</span>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 

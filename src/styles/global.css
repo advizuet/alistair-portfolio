@@ -133,6 +133,7 @@ a {
 .home__nav {
   width: var(--home-nav);
   flex: none;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -156,8 +157,19 @@ a {
 }
 
 .work {
+  min-height: 0;
   display: flex;
   flex-direction: column;
+}
+.work__list {
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: none;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-right: 14px;
 }
 .work__heading {
   margin: 0;
@@ -313,13 +325,15 @@ a {
 
 .split__left,
 .split__right,
-.section-copy {
+.section-copy,
+.work__list {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 .split__left::-webkit-scrollbar,
 .split__right::-webkit-scrollbar,
-.section-copy::-webkit-scrollbar {
+.section-copy::-webkit-scrollbar,
+.work__list::-webkit-scrollbar {
   display: none;
   width: 0;
   height: 0;
@@ -328,9 +342,11 @@ a {
 .split__left::before,
 .split__right::before,
 .section-copy::before,
+.work__list::before,
 .split__left::after,
 .split__right::after,
-.section-copy::after {
+.section-copy::after,
+.work__list::after {
   content: "";
   position: absolute;
   border-radius: 0;
@@ -338,7 +354,8 @@ a {
 }
 .split__left::before,
 .split__right::before,
-.section-copy::before {
+.section-copy::before,
+.work__list::before {
   right: 0;
   top: var(--sb-top, 0px);
   width: 2px;
@@ -348,7 +365,8 @@ a {
 }
 .split__left::after,
 .split__right::after,
-.section-copy::after {
+.section-copy::after,
+.work__list::after {
   right: 0.5px;
   top: var(--sb-track-top, 0px);
   width: 1px;
