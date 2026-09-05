@@ -42,9 +42,9 @@ Routes: `/`, `/resume`, `/work/:slug` (sections via `?section=process|showcase`)
 
 ## Adding the real images
 
-Image assets could not be auto-exported from Figma (the export directory is not in
-Figma Dev Mode's allowed directories). Every media slot currently renders a labeled
-placeholder. To add a real image:
+Image assets are exported from Figma manually via the remote Figma MCP server.
+`Sensing the Fields` and `Pipebot` have their real images in place; the remaining
+media slots render a labeled placeholder. To add a real image:
 
 1. Export/drop the file into `src/assets/`.
 2. In `src/data/projects.ts`, import it and set the `src` on the matching cell, e.g.
