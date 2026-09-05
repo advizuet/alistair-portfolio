@@ -296,6 +296,34 @@ export const projects: Project[] = [
     designed: false,
     sections: placeholderSections(previewWavedrifter),
   },
+  {
+    slug: 'infinity-nook',
+    title: 'Infinity Nook',
+    subtitle: 'Coming soon',
+    designed: false,
+    sections: placeholderSections(),
+  },
+  {
+    slug: 'mdes-forum-book',
+    title: 'MDes Forum Book',
+    subtitle: 'Coming soon',
+    designed: false,
+    sections: placeholderSections(),
+  },
+  {
+    slug: 'ucsd-esports',
+    title: 'UCSD Esports',
+    subtitle: 'Coming soon',
+    designed: false,
+    sections: placeholderSections(),
+  },
+  {
+    slug: 'concept-mapping',
+    title: 'Concept Mapping',
+    subtitle: 'Coming soon',
+    designed: false,
+    sections: placeholderSections(),
+  },
 ]
 
 export function getProject(slug: string | undefined): Project | undefined {
