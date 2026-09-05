@@ -68,6 +68,31 @@ and copies `dist/index.html` to `404.html` as the SPA deep-link fallback.
 Do not edit `base` in `vite.config.ts` to fix a local path problem — local dev is
 meant to run at `/`.
 
+## Figma
+
+Design file: `portfolio-site-wip`. `Page 1` holds the approved design and is
+read-only — do not propose changes to it. In-progress layout work lives on separate
+pages.
+
+**Figma is layout guidance, not the full source of truth.** Behaviour that exists
+only in code is deliberate and predates the design file. When implementing from a
+Figma frame:
+
+- Never remove existing behaviour because it is absent from the design.
+- Never assume an unrepresented feature was cut. Ask.
+- Treat the frame as authority on layout, dimensions, spacing, and type — not on
+  what the page does.
+
+Known code-only behaviour, none of which appears in Figma:
+
+- `src/blueScrollbars.ts` — custom scrollbar behaviour
+- Homepage hover previews wired through `MediaPanel.tsx`
+- Route and section transitions (`?section=process|showcase`)
+
+Collage `rows[].height` and `cells[].flex` values come from the Figma frame's pixel
+dimensions. Read them from the design rather than estimating, and keep them
+proportional rather than rounding to small integers.
+
 ## Conventions
 
 - TypeScript strict. No `any`. Prefer widening the types in `projects.ts` over casts.
